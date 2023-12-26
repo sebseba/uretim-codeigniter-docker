@@ -1,0 +1,30 @@
+version: '3'
+services:
+  uretimsu:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+      - ../:/var/www/html
+    ports:
+      - 8080:80
+      - 443:443
+    depends_on:
+      - uretimsu-mysql
+  uretimsu-mysql:
+    image: mysql:latest
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      - MYSQL_DATABASE=uretim
+      - MYSQL_ROOT_PASSWORD=123
+      - MYSQL_ALLOW_EMPTY_PASSWORD=1
+    ports:
+      - 3306:3306
+  uretimsu-phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - 8001:80
+    environment:
+      - PMA_HOST=uretimsu-mysql
+      - PMA_PORT=3306

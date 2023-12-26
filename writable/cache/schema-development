@@ -1,0 +1,1 @@
+a:3:{s:4:"time";i:1702164753;s:3:"ttl";i:14400;s:4:"data";O:32:"Tatter\Schemas\Structures\Schema":1:{s:6:"tables";O:35:"Tatter\Schemas\Structures\Mergeable":3:{s:18:"recipe_ingredients";b:1;s:7:"recipes";b:1;s:5:"users";b:1;}}}
